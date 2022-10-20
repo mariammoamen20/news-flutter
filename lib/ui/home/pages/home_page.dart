@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/data/remote/api/api_manger.dart';
 import 'package:news/data/remote/api/model/source_response.dart';
+import 'package:news/ui/home/widgets/source_tab_widget.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = 'ui.home';
@@ -58,16 +59,17 @@ class HomePage extends StatelessWidget {
                   return Center(child: Text('${data?.message}'));
                 }
                 var source = data?.sources;
-                return Expanded(
+                return SourceTab(source!);/*Expanded(
                   child: ListView.separated(
                       itemBuilder: (context, index) {
-                        return Text((source![index].name) ?? '');
+                        return Text((source!
+                        [index].name) ?? '');
                       },
                       separatorBuilder: (context, index) {
                         return const Divider();
                       },
                       itemCount: source?.length ?? 0),
-                );
+                )*/
               }),
         ],
       ),
